@@ -1,0 +1,3 @@
+John Woods
+Currently, I'm just planning on using Kali on the lab computers, as the carleton license for VMWare seemed challenging to me, but I might take on getting my own
+installation sometime this coming weekend. 
