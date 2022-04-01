@@ -1,0 +1,11 @@
+John Woods
+
+1. ipconfig (I just know this one, no source needed).
+2. nslookup (source: https://www.java67.com/2012/12/unix-command-to-find-ip-address-from-hostname.html#:~:text=nslookup%20is%20one%20of%20the,in%20any%20UNIX%2Dbased%20system.)
+3. nslookup again! (you can use it in both directions, same source as last time)
+4. SCP (source: https://kb.iu.edu/ I've found them particularly useful)
+5. netstat, with the optional port field filled in (Source: https://www.ibm.com/support/pages/how-can-i-check-if-application-listening-port-and-applications-name)
+6. netstat again, but without the optional field (same source)
+7. wget, with the -O option added (source: https://unix.stackexchange.com/questions/12352/how-to-make-wget-save-the-web-page-contents-to-a-file)
+8. curl, using the -i option (source: https://serverfault.com/questions/249483/shell-command-to-see-the-http-headers)
+9. curl again, but this time with the -v (or verbose) option. (source: https://stackoverflow.com/questions/3252851/how-to-display-request-headers-with-command-line-curl)
