@@ -1,1 +1,38 @@
+John Woods
 
+===== DAYTIME =====
+1) Here are the three handshake packet frame summaries:
+    1. 1	0.000000000	172.16.211.128	132.163.96.6	TCP	74	32946 → 13 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=1913609465 TSecr=0 WS=128
+    
+    2. 2	0.025843686	132.163.96.6	172.16.211.128	TCP	60	13 → 32946 [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+    
+    3.3	0.025893323	172.16.211.128	132.163.96.6	TCP	54	32946 → 13 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+    
+2) My Kali uses the port 32946 for this interaction. The client needs a port because it uses a different port for each program, and doing so is what allows it to run multiple applications, as it can keep track of which traffic is coming from which app.
+
+3) Actual frame with data: 
+      4	0.050892454	132.163.96.6	172.16.211.128	DAYTIME	105	DAYTIME Response
+      
+4) Daytime: \n59673 22-04-04 02:25:44 50 0 0 421.0 UTC(NIST) * \n
+  I believe the 5 numbers are the sequence number of this frame. The 22 is the year,   4 is     the month, and 4 is the day.  02 is the hours, 25 is the minutes, 44 is the seconds.  I'm     honestly not sure what the 50, 0, 0, and 421.0 mean, but the UTC(NIST) is confirming           that this info is in UTC and is coming from a NIST server.  
+  
+
+5) [SYN] means the packet in question is a synchronization packet.
+
+6) [ACK] means the packet is an acknowledgement packet, and that the machine is recognizing a request for synchronization.
+
+7) [FIN] means the packet is indicating that the sender won't send any more information and would like to terminate the connection.
+
+8) The NC client closed the connection, and I can tell because the first packet sent with the [FIN] identifier was sent by the client, moving from port 32946 to port 13.
+
+===== HTTP =====
+
+1)
+
+2) Yes, here's the summary: 
+  24	0.156706629	172.16.211.128	45.79.89.123	HTTP	403	GET /index.html HTTP/1.1 
+  
+3) Yep, here's the summary:
+    28	0.250449069	172.16.211.128	45.79.89.123	HTTP	372	GET /jeff_square_head.jpg HTTP/1.1 
+    
+===== QUESTIONS =====
