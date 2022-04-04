@@ -27,7 +27,7 @@ John Woods
 
 ===== HTTP =====
 
-1)
+1) It seems as though 3 TCP connections were opened, as I found 3 instances of [SYN] packets throughout the summary.
 
 2) Yes, here's the summary: 
   24	0.156706629	172.16.211.128	45.79.89.123	HTTP	403	GET /index.html HTTP/1.1 
@@ -36,3 +36,7 @@ John Woods
     28	0.250449069	172.16.211.128	45.79.89.123	HTTP	372	GET /jeff_square_head.jpg HTTP/1.1 
     
 ===== QUESTIONS =====
+
+1) What does the [PSH] mean? I've seen it a few times and I'm guessing it might mean "push?"
+2) Why are some of the summaries highlighted in red in wireshark?
+3) What does the "change cypher spec" line mean?
