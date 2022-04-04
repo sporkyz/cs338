@@ -14,7 +14,7 @@ John Woods
       4	0.050892454	132.163.96.6	172.16.211.128	DAYTIME	105	DAYTIME Response
       
 4) Daytime: \n59673 22-04-04 02:25:44 50 0 0 421.0 UTC(NIST) * \n
-  I believe the 5 numbers are the sequence number of this frame. The 22 is the year,   4 is     the month, and 4 is the day.  02 is the hours, 25 is the minutes, 44 is the seconds.  I'm     honestly not sure what the 50, 0, 0, and 421.0 mean, but the UTC(NIST) is confirming           that this info is in UTC and is coming from a NIST server.  
+I believe the 5 numbers are the sequence number of this frame. The 22 is the year, 4 is the month, and 4 is the day.  02 is the hours, 25 is the minutes, 44 is the seconds. I'm honestly not sure what the 50, 0, 0, and 421.0 mean, but the UTC(NIST) is confirming          that this info is in UTC and is coming from a NIST server.  
   
 
 5) [SYN] means the packet in question is a synchronization packet.
