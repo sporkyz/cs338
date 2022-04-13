@@ -1,0 +1,42 @@
+John Woods
+
+
+--Diffie Hellman--
+
+Given that g = 11 and p = 59, we get Alice's computation as A = 11^a mod 59 = 57.
+Bob's is B = 11^b mod 59 = 44
+Given that the integers are rather small, I can simply plug each equation into a calculator and keep trying values
+until one's correct. I'll start with Alice's. 11^1 mod 59 = 11, 11^2 mod 59 = 3, and so on. Eventually, I find that
+the answer for Alice's is 36, as 11^36 mod 59 = 57. 
+Bob's is 15, as 11^5 mod 59 = 44. 
+With this info, we can find that the shared secret is 15*36=540. 
+
+Obviously, this method is insanely inefficient, and with larger integers would be completely impractical. My method is just
+a manual brute force approach, so it falls apart when the numbers get even a little larger.
+
+--RSA Encryption--
+
+
+We have Bob's public key, so we know the values for e_B and n_B: 13 and 5561 respectively.
+If we presume that Alice's message is encoded via ascii from plaintext, then we know that the output of our mod
+should never go above 127. 
+
+With this knowledge in mind, we can write an extremely simple program to try out a wide variety
+of values for d_b, and filter out any value that gives a mod result above 127. If we do this with a range of 0-10000,
+we find that there are only 8 key values that satisfy this condition (not counting 0 for obvious reasons), and of these
+8, only 4 produce readable and varied ascii values (the other 4 just repeat the number 1 forever). Interestingly, all four 
+values produce the same ascii string, which when converted to plaintext gives us the secret message:
+
+"Hey Bob. It's even worse than we thought! Your pal, Alice. 
+https://www.schneier.com/blog/archives/2022/04/airtags-are-used-for-stalking-far-more-than-previously-reported.html"
+
+Note that this method is yet again purely brute force, and thus would take inordinate amounts of time if the numbers involved
+were any larger. Because I'm testing each value individually, there literally couldn't be a less efficient way to do this
+unless you trivially worsened the method.
+
+However, note that even if Bob's keys involved larger integers, this still wouldn't be safe. This is because
+this message is encrypted character by character, meaning that we see repeats in the message. For instance, the 
+number 570 appears many times in the first half, which ends up corresponding to the space character. Similarly, the letter
+t (which corresponds to 3433 and is quite common in english) appears 11 times, while e (which corresponds to 3860 and 
+is the most common letter in English) appears 15 times. As such, by making some estimations and guessing a few times, it
+would not be difficult to decrypt this message with letter frequency alone. 
