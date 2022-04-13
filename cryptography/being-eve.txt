@@ -21,18 +21,18 @@ We have Bob's public key, so we know the values for e_B and n_B: 13 and 5561 res
 If we presume that Alice's message is encoded via ascii from plaintext, then we know that the output of our mod
 should never go above 127. 
 
-With this knowledge in mind, we can write an extremely simple program to try out a wide variety
+With this knowledge in mind, we can write a rather simple python program to try out a wide variety
 of values for d_b, and filter out any value that gives a mod result above 127. If we do this with a range of 0-10000,
 we find that there are only 8 key values that satisfy this condition (not counting 0 for obvious reasons), and of these
 8, only 4 produce readable and varied ascii values (the other 4 just repeat the number 1 forever). Interestingly, all four 
-values produce the same ascii string, which when converted to plaintext gives us the secret message:
+values (1249, 3955, 6661, and 9367) produce the same ascii string, which when converted to plaintext gives us the secret message:
 
 "Hey Bob. It's even worse than we thought! Your pal, Alice. 
 https://www.schneier.com/blog/archives/2022/04/airtags-are-used-for-stalking-far-more-than-previously-reported.html"
 
-Note that this method is yet again purely brute force, and thus would take inordinate amounts of time if the numbers involved
-were any larger. Because I'm testing each value individually, there literally couldn't be a less efficient way to do this
-unless you trivially worsened the method.
+Note that this method is yet again purely brute force, and thus would take inordinate amounts of time if the numbers
+involved were any larger. Because I'm testing each value individually, there literally couldn't be a less efficient way to 
+do this unless you trivially worsened the method.
 
 However, note that even if Bob's keys involved larger integers, this still wouldn't be safe. This is because
 this message is encrypted character by character, meaning that we see repeats in the message. For instance, the 
