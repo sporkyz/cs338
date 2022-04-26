@@ -1,0 +1,36 @@
+John Woods
+
+
+Scenario 1: Because PITM attacks are forbidden in this scenario, it's as simple as Bob and Alice agreeing on a shared key via the use of Diffie-Hellman. DH's weakness
+is PITM attacks, and since there's no such concern here, there's no need for certificates or anything else quite so complex. 
+
+
+Scenario 2: Assuming that Mal is only interested in changing the message, and not in acting as a entirely seperate second party who poses as each member to the other,
+Alice can begin by finding the Digest D of her message by hashing her message, giving us D = H(M). She can then sign this short hash with her secret key S_A to
+get a signature, giving us Sig = E(S_A, D). Then, all she has to do is accompany her message with this signature. Bob can then hash the message he recieved and check it
+against the signature by decrypting Sig using P_A. If it's different from the hash he recieved, he knows something has been modified, and the use of Alice's secret Key
+ensures that Mal hasn't also modified the hash, since decryption of a modified digest would just give gibberish.
+
+Scenario 3: For this scenario, Alice must first establish trust that she's really Alice. She can do this by sending Bob her certificate Cert_A, then having Bob
+send her back a challenge that encrypts some number using Alice's public key P_A. She then decrypts this number using S_A, and sends Bob back the number in question,
+completing the challenge and convincing Bob of her identity (with the caviat that PITM isn't allowed). Once Bob's verified her identity, they can simply begin using
+Diffie-Hellman to obtain a shared key and begin encrypting their messages, protecting them from Eve, though this once again fails in the case of a PITM attack. 
+
+4: One thing that Alice could claim is that "P_A isn't really my public key! Bob was finnessed by Mal!" Essentially, she's claiming that the contract didn't really
+come from her. As a judge, while I'd need some evidence for this fact, I'd find it completely reasonable conceptually, as we can't actually assume everyone knows 
+everyone's actual private key. Additionally, Alice could claim that the data had somehow been modified along the way, violating it's integrity. I'd find this claim
+less convincing, given that Bob was able to verify the integrity of the message via the use of hashing. Finally, Alice could claim that while P_A really is her public
+key, the message still didn't come from her, because her S_A was leaked, and Mal likely found her secret key and used it to communicate with Bob. This claim is dubious
+but certainly possible, as secret key leaks happen all of the time in the real world. 
+
+
+5: The CA would calculate their signature by doing Sig = E(S_CA, H(D)), where D is the rest of the data that was sent to Bob in the message that communicated his
+new certificate. 
+
+6: No, this isn't enough because bob's certificate is publicly available, as evidenced by the fact that he's sending it to alice right now. This is solvable by having
+bob and alice do diffie-hellman first, then encrypting a hashed version of the shared key and a random number chosen by Alice with S_B and sending this back to Alice.
+This works because if alice decrypts using Bob's public key, the message will only make sense if it was really bob who encrypted it with his private key. 
+
+7: The first and most obvious way Mal could subvert this method is to set up their own corrupted certificate authority, meaning that Mal could simply send Alice their
+own certificate posing as Bob, using their own public key thus ensuring that when alice decyphers the message, they won't notice anything. Secondly, Mal could simply
+watch the first message, then use a replay of Bob's message from the first time to convince Alice that Mal's just bob sending the same messages again. 
