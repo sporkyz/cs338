@@ -1,6 +1,6 @@
 John Woods
 
-Part 1
+Part 1:
 Total time: 1m5.974s
 Number of hashes computed: 267733 
 Passwords cracked: 2805
@@ -9,7 +9,8 @@ Time per password cracked: 0.023520142602495543 seconds
 Passwords cracked per number of hashes computed: 0.01047685567337608
 
 Part 2: I ran my code for an hour without finding a single password, so I'm doing 
-the timing based on how long it took my code to run through 5 first words.
+the timing based on how long it took my code to run through 5 first words. I got part
+3 done completely though so maybe I can have credit for that :P 
 
 Total time:  4m8.741s
 Number of hashes computed: 1070932
@@ -28,10 +29,28 @@ Time per password: 0.4647 seconds
 
 
 Analysis:
+- My time per hash didn't change between parts 1 and 2, but it seemed to be much faster in part 3? I'm not really sure why it would be so much faster,
+maybe there was some reuse going on that my CPU took care of, making the average hash time lower? By a factor of ~100, as well!
 
-- I'm not sure what factor the time per password changed by since I couldn't find any for parts 2 and 3, 
-but I know for sure that the time was much larger going from part 1 to the later parts, given that I ran 
-parts 2 and 3 for longer than I ran part 1 and got no passwords. The number of possible passwords in 2 was
+- I'm not sure what factor the time per password changed by between 1 and 2 since I couldn't find any for part 2, 
+but I know for sure that the time was much larger going from part 1 to part 3: it took around 20 times longer per password 
+for part 3 compared to part 1. The number of possible passwords in 2 was
 larger than 1 by a factor of around 3,000,000 so that's probably why it took longer there, and there were nearly
-3000 times as many hashes in part 3.
+3000 times as many hashes in part 3, though again there seems to be some reuse or something going on with three that 
+allowed it to be much faster. Maybe I just accidentally made the code more efficient while working on part 3 lol.
+
+-since there's 16 bytes per password, 32 per hash, and 32 per combination of the two, we can just plug in some numbers for easy answers. 
+
+    For phase 1, since there's one hash for each password, this gives us both 2974585 passwords and hashes, 
+    meaning there's 32+32+16 = 80*2974585 bytes, or 237966800 bytes.
+
+    For phase 2, there are 2974585^2 passwords and thus the same number of hashes, giving us 80(2974585^2) = 707852473778000 bytes.
+
+    For phase 3, there's once again 2974585 passwords, but there's a hash for each salt combined with each password, giving us 2805*2974585 hashes.
+    Therefore, the number of bytes are 16(2974585)+32(2974585*2805)+32(2974585) bytes, or 267141529680 bytes.
+
+-First, we should store password hashes rather than passwords so that if the file is leaked, users passwords aren't revealed in plaintext (potentially
+revealing the password they use for other sites). Additionally, the employees at the company should never be able to see the plaintext passwords, as they 
+aren't necessarily trustworthy. Finally, storing hashes rather than passwords means that we can use salts to make it more difficult to find the passwords
+as seen in part 3, wheras plaintext would just give it away instantly. 
 
