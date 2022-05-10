@@ -7,3 +7,31 @@ Passwords cracked: 2805
 Time per hash computed: 0.00024641713946357 seconds
 Time per password cracked: 0.023520142602495543 seconds
 Passwords cracked per number of hashes computed: 0.01047685567337608
+
+Part 2: I ran my code for an hour without finding a single password, so I'm doing 
+the timing based on how long it took my code to run through 5 first words.
+
+Total time:  4m8.741s
+Number of hashes computed: 1070932
+Passwords cracked: 0
+Time per hash: 0.000232265914 seconds
+Time per password: N/A
+Passwords cracked per number of hashes: N/A, but it's definitely less than the first part. 
+
+Part 3:
+Total Time: 21m43.774s
+Hashes Computed: 750991065
+Password Cracked: 2804
+Time per hash: 0.00000173607125405679 seconds (less than part 1!)
+Time per password: 0.4647 seconds
+
+
+
+Analysis:
+
+- I'm not sure what factor the time per password changed by since I couldn't find any for parts 2 and 3, 
+but I know for sure that the time was much larger going from part 1 to the later parts, given that I ran 
+parts 2 and 3 for longer than I ran part 1 and got no passwords. The number of possible passwords in 2 was
+larger than 1 by a factor of around 3,000,000 so that's probably why it took longer there, and there were nearly
+3000 times as many hashes in part 3.
+
