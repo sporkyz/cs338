@@ -1,0 +1,9 @@
+John Woods
+
+Part 1
+Total time: 1m5.974s
+Number of hashes computed: 267733 
+Passwords cracked: 2805
+Time per hash computed: 0.00024641713946357 seconds
+Time per password cracked: 0.023520142602495543 seconds
+Passwords cracked per number of hashes computed: 0.01047685567337608
