@@ -1,0 +1,36 @@
+John Woods
+
+Choosing scenario 2, I'm definitely presented with an awkward ethical dilemma. While I love my job, and I would hate to put that position into shakier status,
+I also have a responsibility to both my coworkers and users to maintain the confidentiality of information. The primary ethical question here is as follows: "Should
+I keep quiet to ensure my job security, or should I speak up and potentially anger the CEO in order to fight for the privacy of our users?" Additionally, a further
+question arises: "If I am going to fight for privacy, am I ok with the proper use of anonymised data, or will I be completely against all data storage whenever it's 
+possible to remove?" 
+
+There are three main groups of "stakeholders" in this situation. First, the most obvious stakeholders are the customers whose data I am trying to protect. These
+people have a right to privacy, as well as an expectation of this privacy that is engendered by the marketing around Beerz, the same marketing the CTO gave me
+when I was considering working for them. Secondly, the next group of stakeholders is my coworkers. While some are apparently clueless and "profoundly annoying," 
+many (such as the CTO) are likely conscerned about the security and privacy implicatons of the CEO's idea. They have both the right and the requirement to be 
+concerned with the privacy of their users, work for the better good, and to be honest with their work. As such, it would be doing them a disservice to let this 
+idea go through without a thorough review and reworking. Finally, the last stakeholder group is that of those financially benefitting from the CEO's idea. This 
+includes the CEO themselves, any stakeholders the company may have, and more broadly, the employees (assuming, perhaps optimistically, that company profits will
+in turn lead to higher wages). While these people, as the ACM code states, should expect to be compensated for their work, they also must strive towards honesty, privacy,
+and fairness in their position. The CEO in particular has an obligation to lead with public good as the central concern, and is somewhat violating this requirement 
+by suggesting such a manipulative policy. 
+
+I wish I knew a little more about this scenario, such as how effective our anonymization of user data would be, but the fact alone that the url logs were storing user
+data all along doesn't give me much confidence in our systems' safety and privacy. I'd also like to know how much direct control the CEO has over my employment status, 
+and whether this company has a history of firing dissenting voices. 
+
+I could potentially just say nothing about this issue, and let the data harvesting go unchecked, but this could seriously jeapordize our customers' privacy, especially
+if the data is not (or cannot) be properly anonymized. I'd likely retain my position and perhaps even be promoted, but in turn I'd be risking my own professional
+integrity as well as that of my coworkers. In turn, I could bring this issue up to the CEO, and while this might have the effect I'm looking for, it's entirely possible
+that I'd just be fired on the spot, and doing so might not even change anything about the policy. In that case, I'd be out of a job and also have done nothing to secure
+Beerz' customers' privacy. However, if the CEO was receptive, I could potentially not only change things for the better for the users, but also help my coworkers become
+more comfortable with raising concerns like mine in the future, making their quality of work and ethical considerations much more positive in the future. 
+
+The ACM code offers plenty of guidance here, and makes the ethically correct descision rather clear, in my opinion. Between my obligation to support the public good, 
+be honest with not only my users but also my superiors, respect privacy, avoid harm, and honor confidentiality, it's clear that the general ethical principles are in
+favor of raising the issue with the CEO. Additionally, the professional standards also agree, as I have a responsibility to strive for high quality (something that the
+logs are currently very much lacking), provide appropriate professional review, analyze possible risks, design robust systems, and to only access computing systems
+(such as the logs) when the public good compells it. As such, while it's a tough personal decision, from an ethical standpoint it's clear that I must raise the issue
+with the CEO and discuss the possible harms, advocating whenever possible for scrubbing user data, including data that's supposedly "anonymized."
